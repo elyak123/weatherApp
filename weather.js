@@ -2,22 +2,22 @@ $(document).ready(function(){
 	var rawUrl = "api.openweathermap.org/data/2.5/weather?";
 	var key = "4d1ae4b1501eb1f48985bd4fe68b5233";
 	navigator.geolocation.getCurrentPosition(function(pos){
-		console.log(pos);
-		debugger;
-		$("#weather").append(pos.coords.latitude + ", " + pos.coords.longitude);
+		var lat = pos.coords.latitude;
+		var lon = pos.coords.longitude;
+		$.ajax({
+			url: rawUrl + "lat=" + lat + "&" + lon + "&appid=" + key,
+			method: "GET",
+			dataType: "jsonp",
+			success: function(x){
+				$("#weather").append(x);
+				console.log(x);
+			}
+		});		
 	});
 
 
 
-	// navigator.geolocation.getCurrentPosition(function(pos){
-	// 	$.ajax({
-	// 		url: rawUrl + "lat=" + pos.latitude + "&" + pos.longitude + "&appid=" + key,
-	// 		method: "GET",
-	// 		dataType: "jsonp",
-	// 		success: function(x){
-	// 			$("#weather").append(x);
-	// 			console.log(x);
-	// 		}
-	// 	});		
-	// })
+	navigator.geolocation.getCurrentPosition(function(pos){
+		
+	})
 });
