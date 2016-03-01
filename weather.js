@@ -9,7 +9,9 @@ $(document).ready(function(){
 			method: "GET",
 			dataType: "jsonp",
 			success: function(x){
-				$("#weather").append(x);
+				$("#weather").append(x.name);
+				$("#weather").append(x.weather.main);
+				$("#weather").append(x.weather.description);
 				console.log(x);
 			}
 		});		
