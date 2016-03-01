@@ -3,7 +3,8 @@ $(document).ready(function(){
 	var key = "4d1ae4b1501eb1f48985bd4fe68b5233";
 	navigator.geolocation.getCurrentPosition(function(pos){
 		console.log(pos);
-		$("#weather").append(pos.latitude + ", " + pos.longitude);
+		debugger;
+		$("#weather").append(pos.coords.latitude + ", " + pos.coords.longitude);
 	});
 
 
