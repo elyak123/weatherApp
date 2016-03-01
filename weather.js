@@ -10,8 +10,8 @@ $(document).ready(function(){
 			dataType: "jsonp",
 			success: function(x){
 				$("#weather").append(x.name);
-				$("#weather").append(x.weather.[0].main);
-				$("#weather").append(x.weather.[0].description);
+				$("#weather").append(x.weather[0].main);
+				$("#weather").append(x.weather[0].description);
 				console.log(x);
 			}
 		});		
