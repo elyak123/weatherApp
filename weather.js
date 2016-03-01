@@ -5,7 +5,7 @@ $(document).ready(function(){
 		var lat = pos.coords.latitude;
 		var lon = pos.coords.longitude;
 		$.ajax({
-			url: rawUrl + "lat=" + lat + "&" + lon + "&appid=" + key,
+			url: rawUrl + "lat=" + lat + "&" + "lon=" +lon + "&appid=" + key,
 			method: "GET",
 			dataType: "jsonp",
 			success: function(x){
