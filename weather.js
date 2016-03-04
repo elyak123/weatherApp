@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$.get('http://elyak123.github.io/Portafolio-fcc/Templates/encabezado.html', function (data){
 		$('header').html(data);
 	});
+	debugger;
 	$(".boton-movil").click(function(){
 		debugger;
 		if ($("li").hasClass("menu-listitem")) {
