@@ -8,7 +8,7 @@ $(document).ready(function(){
 		var lat = split[0];
 		var lon = split[1];
 		$.ajax({
-			url: rawUrl + "lat=" + lat + "&" + "lon=" +lon + "&appid=" + key,
+			url: rawUrl + "lat=" + lat + "&" + "lon=" +lon + "&units=metric&appid=" + key,
 			method: "GET",
 			dataType: "jsonp",
 			success: function(x){
