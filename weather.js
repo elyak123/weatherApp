@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	debugger;
 	$.get('http://elyak123.github.io/Portafolio-fcc/Templates/encabezado.html', function (data){
 		$('header').html(data);
 	});
