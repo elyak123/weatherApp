@@ -36,7 +36,7 @@ $(document).ready(function(){
 		// 	}
 		// });
 	});
-	$('#gpsTrigger').click(function(){
+	$('#gpsTrigger').on(click, function(){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var lat = pos.latitude;
 			var lon = pos.longtitude;
