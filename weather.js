@@ -38,8 +38,8 @@ $(document).ready(function(){
 	});
 	$('#gpsTrigger').on('click', function(){
 		navigator.geolocation.getCurrentPosition(function(pos){
-			var lat = pos.latitude;
-			var lon = pos.longtitude;
+			var lat = pos.coords.latitude;
+			var lon = pos.coords.longtitude;
 			debugger;
 			$.ajax({
 				url: currentUrl + "lat=" + lat + "&lon=" +lon + "&lang=es&units=metric&appid=" + key,
