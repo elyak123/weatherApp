@@ -36,10 +36,11 @@ $(document).ready(function(){
 		// 	}
 		// });
 	});
-	$('#gpsTrigger').on(click, function(){
+	$('#gpsTrigger').on('click', function(){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var lat = pos.latitude;
 			var lon = pos.longtitude;
+			debugger;
 			$.ajax({
 				url: currentUrl + "lat=" + lat + "&lon=" +lon + "&lang=es&units=metric&appid=" + key,
 				method: "GET",
