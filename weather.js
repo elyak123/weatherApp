@@ -39,7 +39,7 @@ $(document).ready(function(){
 	$('#gpsTrigger').on('click', function(){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var lat = pos.coords.latitude;
-			var lon = pos.coords.longtitude;
+			var lon = pos.coords.longitude;
 			debugger;
 			$.ajax({
 				url: currentUrl + "lat=" + lat + "&lon=" +lon + "&lang=es&units=metric&appid=" + key,
