@@ -4,7 +4,7 @@ $(document).ready(function(){
 	var currentUrl = "http://api.openweathermap.org/data/2.5/weather?";
 	var key = "4d1ae4b1501eb1f48985bd4fe68b5233";
 	$.getJSON('http://ipinfo.io', function(data){
-		console.log(data);
+		//console.log(data);
 		var split = data.loc.split(',');
 		var lat = split[0];
 		var lon = split[1];
@@ -13,11 +13,19 @@ $(document).ready(function(){
 			method: "GET",
 			dataType: "jsonp",
 			success: function(x){
-				var icon = x.weather[0].icon
+				var icon = x.weather[0].icon;
+				var daylight = icon.slice(2,2);
+				if (daylight === "d") {
+					$('#animation').addClass('day');
+				} else{
+					$('#animation').addClass('night');
+					$('#current').addClass('currentNight');
+				}
 				$('#currentImage').attr('src','weathericons/' + icon + '.png').attr('alt', x.weather[0].description);
 				$('#currentDescription').html(x.weather[0].description);
-				$('#currentTemp span').html(x.main.temp);
+				$('#currentTemp span').html(Math.round(x.main.temp));
 				$('#city').html(x.name);
+				//hacer un switch con nueve casos para describir las distintas animaciones.
 				console.log(x);
 				//debugger;
 			}
@@ -40,7 +48,6 @@ $(document).ready(function(){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			var lat = pos.coords.latitude;
 			var lon = pos.coords.longitude;
-			debugger;
 			$.ajax({
 				url: currentUrl + "lat=" + lat + "&lon=" +lon + "&lang=es&units=metric&appid=" + key,
 				method: "GET",
@@ -51,7 +58,7 @@ $(document).ready(function(){
 					$('#currentDescription').html(x.weather[0].description);
 					$('#currentTemp span').html(x.main.temp);
 					$('#city').html(x.name);
-					console.log(x);
+				 	console.log(x);
 					//debugger;
 				}
 			});
