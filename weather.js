@@ -56,7 +56,7 @@ $(document).ready(function(){
 					var icon = x.weather[0].icon
 					$('#currentImage').attr('src','weathericons/' + icon + '.png').attr('alt', x.weather[0].description);
 					$('#currentDescription').html(x.weather[0].description);
-					$('#currentTemp span').html(x.main.temp);
+					$('#currentTemp span').html(Math.round(x.main.temp));
 					$('#city').html(x.name);
 				 	console.log(x);
 					//debugger;
