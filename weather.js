@@ -14,7 +14,8 @@ $(document).ready(function(){
 			dataType: "jsonp",
 			success: function(x){
 				var icon = x.weather[0].icon;
-				var daylight = icon.slice(2,2);
+				var daylight = icon[2];
+				var back = icon.slice(0, 2);
 				if (daylight === "d") {
 					$('#animation').addClass('day');
 				} else{
@@ -25,7 +26,10 @@ $(document).ready(function(){
 				$('#currentDescription').html(x.weather[0].description);
 				$('#currentTemp span').html(Math.round(x.main.temp));
 				$('#city').html(x.name);
-				//hacer un switch con nueve casos para describir las distintas animaciones.
+				//hacer un get para describir las distintas animaciones.
+				$.get(back + ".html", function(data){
+					$("#animation").html(data);
+				});
 				console.log(x);
 				//debugger;
 			}

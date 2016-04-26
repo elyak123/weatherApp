@@ -1,9 +1,28 @@
-<div id="cloud1" style="
-	background: url('http://nobacks.com/wp-content/uploads/2014/11/Cloud-27.png') center no-repeat;
-	left: 0;
-	position: absolute;
-	width: 738px;
-	height: 445px;
-	-webkit-animation: cloud1 75s linear infinite;
-	animation: cloud1 75s linear infinite;
+<style type="text/css">
+	@keyframes cloud1 {
+		0% {left: -50%;}
+		100% {left: 90%;}
+	}
+	@keyframes cloud2{
+
+	}
+	@media screen and (max-width: 500px){
+		@keyframes cloud1 {
+			0% {transform: translateX(-520px);}
+			100% {transform: translateX(350px);}
+		}
+		@keyframes cloud2 {
+			0% {transform: translateX(-520px);}
+			100% {transform: translateX(350px);}
+		}
+	}
+</style>
+<div style="
+		background: url('weathericons/animationImages/Cloud-27.png') center no-repeat;
+		left: 0;
+		position: absolute;
+		width: 738px;
+		height: 445px;
+		-webkit-animation: cloud1 75s linear infinite;
+		animation: cloud1 75s linear infinite;
 "></div>
