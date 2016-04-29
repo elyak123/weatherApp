@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	encabezado();
-	var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast/daily?";
-	var currentUrl = "https://api.openweathermap.org/data/2.5/weather?";
+	var currentUrl = "http://api.openweathermap.org/data/2.5/weather?";
 	var key = "4d1ae4b1501eb1f48985bd4fe68b5233";
 	function calling(lat, lon, key, cUrl){
 		$.ajax({
@@ -27,23 +26,15 @@ $(document).ready(function(){
 					$("#animation").html(data);
 				});
 				console.log(x);
-				//debugger;
 			}
 		});
 	}
-	if(location.protocol == "https"){
-		navigator.geolocation.getCurrentPosition(function(pos){
-			var lat = pos.coords.latitude;
-			var lon = pos.coords.longitude;
-			calling(lat, lon, key, currentUrl);
-		});
-	}else{
-		$.getJSON('http://ipinfo.io', function(data){
-			var split = data.loc.split(',');
-			var lat = split[0];
-			var lon = split[1];
-			calling(lat, lon, key, currentUrl)
-		});
-	}
+	$.getJSON('http://ipinfo.io', function(data){
+		var split = data.loc.split(',');
+		var lat = split[0];
+		var lon = split[1];
+		calling(lat, lon, key, currentUrl)
+	});
+
 	footer();
 });
