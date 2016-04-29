@@ -29,10 +29,9 @@ $(document).ready(function(){
 			}
 		});
 	}
-	$.getJSON('http://ipinfo.io', function(data){
-		var split = data.loc.split(',');
-		var lat = split[0];
-		var lon = split[1];
+	$.getJSON('http://ip-api.com/json', function(data){
+		var lat = data.lat;
+		var lon = data.lon;
 		calling(lat, lon, key, currentUrl)
 	});
 
